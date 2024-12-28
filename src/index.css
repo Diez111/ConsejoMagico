@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: fall linear forwards;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) scale(0);
+  }
+  50% {
+    transform: translateY(50vh) scale(1);
+  }
+  100% {
+    transform: translateY(110vh) scale(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.chat-bubble {
+  position: relative;
+}
+
+.chat-bubble::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 12px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid rgba(88, 28, 135, 0.4);
+}
+
+/* Estilos para el scroll suave */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Ocultar la barra de scroll pero mantener la funcionalidad */
+.scroll-smooth::-webkit-scrollbar {
+  width: 0px;
+}
+
+.scroll-smooth {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
